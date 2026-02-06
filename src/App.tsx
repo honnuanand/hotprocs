@@ -26,6 +26,9 @@ import { KnativeHookEarlySlide, KnativeHookLateSlide } from './slides/KnativeHoo
 import { TimingComparisonSlide } from './slides/TimingComparisonSlide';
 import { SignalDeliverySlide } from './slides/SignalDeliverySlide';
 import { SummarySlide } from './slides/SummarySlide';
+import { HardwareBridgeSlide } from './slides/HardwareBridgeSlide';
+import { VRMIntroSlide, VRMFlowSlide } from './slides/VRMFlowSlide';
+import { VRMHookSVIDSlide, VRMHookLoadSlide } from './slides/VRMHookSlides';
 
 const theme = createTheme({
   palette: {
@@ -61,6 +64,11 @@ const slides = [
   { id: 'timing', label: 'Timing', component: TimingComparisonSlide },
   { id: 'signal-delivery', label: 'Signals', component: SignalDeliverySlide },
   { id: 'summary', label: 'Summary', component: SummarySlide },
+  { id: 'hw-bridge', label: 'Hardware Bridge', component: HardwareBridgeSlide },
+  { id: 'vrm-intro', label: 'VRM Intro', component: VRMIntroSlide },
+  { id: 'vrm-flow', label: 'VRM Flow', component: VRMFlowSlide },
+  { id: 'vrm-hook-svid', label: 'SVID Hook', component: VRMHookSVIDSlide },
+  { id: 'vrm-hook-load', label: 'Load Regulation', component: VRMHookLoadSlide },
 ];
 
 const PASSCODE = 'hotprocs2026';

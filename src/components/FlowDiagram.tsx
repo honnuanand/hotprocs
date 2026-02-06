@@ -42,7 +42,7 @@ export const FlowDiagram: React.FC<FlowDiagramProps> = ({ flow, controls }) => {
         sx={{
           fontWeight: 700,
           mb: 2,
-          color: flow.id === 'kubernetes' ? '#326ce5' : '#0865ad',
+          color: flow.id === 'kubernetes' ? '#326ce5' : flow.id === 'vrm' ? '#92400e' : '#0865ad',
           fontFamily: 'var(--font-sans)',
         }}
       >

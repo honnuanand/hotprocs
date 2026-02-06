@@ -12,7 +12,7 @@ export interface FlowStep {
 }
 
 export interface Flow {
-  id: 'kubernetes' | 'knative';
+  id: 'kubernetes' | 'knative' | 'vrm';
   title: string;
   steps: FlowStep[];
 }
