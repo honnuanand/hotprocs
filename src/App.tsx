@@ -4,6 +4,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import LockIcon from '@mui/icons-material/Lock';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
@@ -59,9 +63,23 @@ const slides = [
   { id: 'summary', label: 'Summary', component: SummarySlide },
 ];
 
+const PASSCODE = 'hotprocs2026';
+
 const App: React.FC = () => {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
   const { currentSlide, nextSlide, prevSlide, totalSlides } = useSlideNavigation(slides.length);
   const [direction, setDirection] = useState(1);
+
+  const handleLogin = () => {
+    if (password === PASSCODE) {
+      setAuthenticated(true);
+      setError(false);
+    } else {
+      setError(true);
+    }
+  };
 
   const handleNext = () => {
     setDirection(1);
@@ -77,6 +95,64 @@ const App: React.FC = () => {
     onNext: handleNext,
     onPrev: handlePrev,
   });
+
+  if (!authenticated) {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box
+          sx={{
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            bgcolor: '#f8fafc',
+          }}
+        >
+          <Paper
+            elevation={3}
+            sx={{
+              p: 5,
+              borderRadius: 3,
+              textAlign: 'center',
+              maxWidth: 380,
+              width: '100%',
+            }}
+          >
+            <LockIcon sx={{ fontSize: 40, color: '#94a3b8', mb: 2 }} />
+            <Typography variant="h6" sx={{ fontWeight: 600, color: '#1e293b', mb: 1 }}>
+              Enter Passcode
+            </Typography>
+            <Typography variant="body2" sx={{ color: '#64748b', mb: 3 }}>
+              This presentation is password-protected.
+            </Typography>
+            <TextField
+              type="password"
+              value={password}
+              onChange={e => { setPassword(e.target.value); setError(false); }}
+              onKeyDown={e => { if (e.key === 'Enter') handleLogin(); }}
+              placeholder="Passcode"
+              fullWidth
+              size="small"
+              error={error}
+              helperText={error ? 'Incorrect passcode' : ' '}
+              autoFocus
+              sx={{ mb: 2 }}
+            />
+            <Button
+              variant="contained"
+              onClick={handleLogin}
+              fullWidth
+              sx={{ textTransform: 'none', fontWeight: 600 }}
+            >
+              Enter
+            </Button>
+          </Paper>
+        </Box>
+      </ThemeProvider>
+    );
+  }
 
   return (
     <ThemeProvider theme={theme}>
