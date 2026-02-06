@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "mcp__clue2app__c2a_status",
+      "mcp__clue2app__c2a_check_repo",
+      "Bash(c2a status:*)",
+      "Bash(pip show:*)",
+      "Bash(pip3 install:*)",
+      "Bash(npx @clue2app/cli:*)",
+      "Bash(npm run build:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
