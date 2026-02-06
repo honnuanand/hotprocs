@@ -14,7 +14,23 @@
       "Bash(npm run build:*)",
       "Bash(gh repo create:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "mcp__clue2app__c2a_auth_status",
+      "mcp__clue2app__c2a_list_projects",
+      "Bash(c2a auth status:*)",
+      "mcp__clue2app__c2a_deploy_current",
+      "Bash(git remote:*)",
+      "mcp__clue2app__c2a_create_app",
+      "Bash(brew search:*)",
+      "Bash(/Users/anand/Library/Python/3.9/bin/c2a status:*)",
+      "Bash(/Users/anand/Library/Python/3.9/bin/c2a login:*)",
+      "Bash(/Users/anand/Library/Python/3.9/bin/c2a deploy:*)",
+      "Bash(/Users/anand/Library/Python/3.9/bin/c2a apps list:*)",
+      "Bash(/Users/anand/Library/Python/3.9/bin/c2a builds logs hotprocs:*)",
+      "Bash(/Users/anand/Library/Python/3.9/bin/c2a:*)",
+      "Bash(git mv:*)"
     ]
   }
 }
