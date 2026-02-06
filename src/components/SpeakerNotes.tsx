@@ -46,7 +46,7 @@ export const SpeakerNotes: React.FC<SpeakerNotesProps> = ({ notes, expanded, onT
           },
         }}
       >
-        <InfoOutlinedIcon sx={{ fontSize: 14, color: '#94a3b8' }} />
+        <InfoOutlinedIcon sx={{ fontSize: 15, color: '#94a3b8' }} />
         <Typography
           variant="caption"
           sx={{
