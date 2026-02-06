@@ -1,14 +1,18 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Box from '@mui/material/Box';
+import { SpeakerNotes } from './SpeakerNotes';
 
 interface SlideProps {
   children: React.ReactNode;
   isActive: boolean;
   direction?: number;
+  notes?: string[];
+  detailsExpanded: boolean;
+  onToggleDetails: () => void;
 }
 
-export const Slide: React.FC<SlideProps> = ({ children, isActive, direction = 1 }) => {
+export const Slide: React.FC<SlideProps> = ({ children, isActive, direction = 1, notes, detailsExpanded, onToggleDetails }) => {
   return (
     <AnimatePresence mode="wait" custom={direction}>
       {isActive && (
@@ -30,10 +34,15 @@ export const Slide: React.FC<SlideProps> = ({ children, isActive, direction = 1 
               justifyContent: 'center',
               alignItems: 'center',
               p: 6,
+              pb: notes && notes.length > 0 ? 4 : 6,
               overflow: 'hidden',
+              position: 'relative',
             }}
           >
             {children}
+            {notes && notes.length > 0 && (
+              <SpeakerNotes notes={notes} expanded={detailsExpanded} onToggle={onToggleDetails} />
+            )}
           </Box>
         </motion.div>
       )}
